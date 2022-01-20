@@ -17,9 +17,19 @@ resource "aws_subnet" "main_public_subnet" {
   cidr_block = "10.0.1.0/24"
   map_public_ip_on_launch = true
   availability_zone = "us-west-2a"
-  
+
   tags = {
     Name = "terraform-dev-public-subnet"
   }
   
 }
+
+#Create an Internet Gateway
+resource "aws_internet_gateway" "dev_igw" {
+  vpc_id = "${aws_vpc.main_vpc.id}"
+
+  tags = {
+    Name = "terraform-dev-igw"
+  }
+}
+  
