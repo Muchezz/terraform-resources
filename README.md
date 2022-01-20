@@ -2,7 +2,7 @@
 
 This repo is a workstation showcasing provisioning of resources to AWS with Terraform
 
-# A Code and Referencing
+# Code walk through and Referencing
 - Deploy a subnet to which we can deploy our future EC2 instances. [Reference resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/subnet)
 
 - Give our resources a way to the internet by creating an internet gateway. [Reference resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway)
