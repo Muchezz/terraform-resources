@@ -53,3 +53,23 @@ resource "aws_route_table_association" "dev_public_route_table_association" {
   subnet_id      = aws_subnet.main_public_subnet.id
   route_table_id = aws_route_table.dev_public_route_table.id
 }
+
+#Create a security group
+resource "aws_security_group" "dev_sg" {
+  vpc_id = aws_vpc.main_vpc.id
+  name   = "terraform-dev-sg"
+
+  ingress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  engress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
