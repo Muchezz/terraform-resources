@@ -80,6 +80,7 @@ resource "aws_instance" "dev_node" {
   instance_type               = "t2.micro"
   vpc_security_group_ids      = [aws_security_group.dev_sg.id]
   subnet_id                   = aws_subnet.main_public_subnet.id
+  user_data = file("userdata.tpl")
   associate_public_ip_address = true
   tags = {
     Name = "terraform-dev-node"
