@@ -66,7 +66,7 @@ resource "aws_security_group" "dev_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  engress {
+  egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
