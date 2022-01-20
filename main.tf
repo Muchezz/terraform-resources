@@ -73,3 +73,20 @@ resource "aws_security_group" "dev_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+#Create an EC2
+resource "aws_instance" "dev_node" {
+  ami                         = data.aws_ami.server_ami.id
+  instance_type               = "t2.micro"
+  vpc_security_group_ids      = [aws_security_group.dev_sg.id]
+  subnet_id                   = aws_subnet.main_public_subnet.id
+  associate_public_ip_address = true
+  tags = {
+    Name = "terraform-dev-node"
+  }
+
+  root_block_device {
+    volume_size = 10
+    volume_type = "gp2"
+  }
+}
